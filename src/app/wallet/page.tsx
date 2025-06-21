@@ -11,7 +11,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useUser } from '@/contexts/UserContext';
 import type { WalletTransaction } from '@/lib/types';
 import { mockUsers, mockWalletTransactions } from '@/lib/mockData';
-import { DollarSign, ArrowDownToLine, ArrowUpFromLine, Send, History, Loader2 } from 'lucide-react';
+import { DollarSign, ArrowDownToLine, ArrowUpFromLine, Send, History, Loader2, Wallet } from 'lucide-react';
 import { format } from 'date-fns';
 import { useRouter } from 'next/navigation';
 
