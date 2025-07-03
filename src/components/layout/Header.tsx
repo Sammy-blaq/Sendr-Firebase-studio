@@ -69,9 +69,11 @@ export default function Header() {
             </div>
           </DropdownMenuLabel>
           <DropdownMenuSeparator />
-          <DropdownMenuItem onClick={() => alert('Profile page placeholder')}>
-            <UserCircle className="mr-2 h-4 w-4" />
-            Profile
+          <DropdownMenuItem asChild>
+            <Link href="/profile">
+              <UserCircle className="mr-2 h-4 w-4" />
+              Profile
+            </Link>
           </DropdownMenuItem>
           <DropdownMenuItem onClick={logout}>
             <LogOut className="mr-2 h-4 w-4" />
