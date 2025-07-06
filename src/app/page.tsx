@@ -12,7 +12,7 @@ export default function Home() {
         <div className="container px-4 md:px-6 text-center">
           <div className="space-y-6">
             <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl text-primary">
-              SwiftSend: Your Package, Your Price, Your Way.
+              Sendr: Your Package, Your Price, Your Way.
             </h1>
             <p className="mx-auto max-w-[700px] text-foreground/80 md:text-xl">
               Connect with travelers heading your way. Send packages reliably and affordably.
@@ -40,7 +40,7 @@ export default function Home() {
             <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">How It Works</div>
             <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-5xl">Simple Steps to Send or Earn</h2>
             <p className="max-w-[900px] text-foreground/70 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              SwiftSend makes package delivery intuitive and community-driven.
+              Sendr makes package delivery intuitive and community-driven.
             </p>
           </div>
           <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-3">
@@ -85,7 +85,7 @@ export default function Home() {
         <div className="container grid items-center gap-6 px-4 md:px-6 lg:grid-cols-2 lg:gap-10">
           <div className="space-y-4">
             <div className="inline-block rounded-lg bg-primary text-primary-foreground px-3 py-1 text-sm">Features</div>
-            <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Why Choose SwiftSend?</h2>
+            <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Why Choose Sendr?</h2>
             <ul className="grid gap-4">
               <li className="flex items-start gap-3">
                 <Zap className="h-6 w-6 text-accent flex-shrink-0 mt-1" />
@@ -113,7 +113,7 @@ export default function Home() {
           <div className="flex items-center justify-center">
             <Image
               src="https://placehold.co/600x400.png"
-              alt="SwiftSend in action"
+              alt="Sendr in action"
               width={600}
               height={400}
               className="rounded-xl shadow-2xl"
@@ -129,7 +129,7 @@ export default function Home() {
             <CardHeader>
               <CardTitle className="font-headline text-3xl">Ready to Get Started?</CardTitle>
               <CardDescription>
-                Join the SwiftSend community today and experience a new way to send and earn.
+                Join the Sendr community today and experience a new way to send and earn.
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -141,7 +141,7 @@ export default function Home() {
                 </Button>
                 <Button asChild variant="secondary" size="lg" className="flex-1">
                   <Link href="/packages">
-                    Become a SwiftSend Traveler
+                    Become a Sendr Traveler
                   </Link>
                 </Button>
               </div>

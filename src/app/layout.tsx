@@ -3,8 +3,8 @@ import './globals.css';
 import { AppLayout } from '@/components/layout/AppLayout';
 
 export const metadata: Metadata = {
-  title: 'SwiftSend - Fast & Reliable Package Delivery',
-  description: 'Send and receive packages with SwiftSend. Set your price, find travelers, and manage your wallet easily.',
+  title: 'Sendr - Fast & Reliable Package Delivery',
+  description: 'Send and receive packages with Sendr. Set your price, find travelers, and manage your wallet easily.',
 };
 
 export default function RootLayout({

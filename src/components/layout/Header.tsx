@@ -103,7 +103,7 @@ export default function Header() {
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
           <PackageOpen className="h-8 w-8 text-primary" />
-          <span className="font-headline text-2xl font-bold text-primary">SwiftSend</span>
+          <span className="font-headline text-2xl font-bold text-primary">Sendr</span>
         </Link>
         
         <nav className="hidden md:flex items-center space-x-2 lg:space-x-4">
@@ -123,7 +123,7 @@ export default function Header() {
               <SheetContent side="right" className="w-[300px] sm:w-[400px] p-6">
                  <Link href="/" className="flex items-center space-x-2 mb-6" onClick={() => setMobileMenuOpen(false)}>
                     <PackageOpen className="h-8 w-8 text-primary" />
-                    <span className="font-headline text-2xl font-bold text-primary">SwiftSend</span>
+                    <span className="font-headline text-2xl font-bold text-primary">Sendr</span>
                   </Link>
                 <nav className="flex flex-col space-y-3">
                   <NavLinksContent isMobile={true} />
