@@ -24,7 +24,7 @@ export type SuggestPackagePriceInput = z.infer<typeof SuggestPackagePriceInputSc
 const SuggestPackagePriceOutputSchema = z.object({
   suggestedPrice: z
     .number()
-    .describe('The suggested price for the package in US dollars.'),
+    .describe('The suggested price for the package in Nigerian Naira.'),
   reasoning: z.string().describe('The reasoning behind the suggested price.'),
 });
 export type SuggestPackagePriceOutput = z.infer<typeof SuggestPackagePriceOutputSchema>;
@@ -41,7 +41,7 @@ const prompt = ai.definePrompt({
   output: {schema: SuggestPackagePriceOutputSchema},
   prompt: `You are a pricing expert for a package delivery service.
 
-  Based on the following information, suggest an optimal price for the package in US dollars.  Also explain the reasoning for the price that you suggested.
+  Based on the following information, suggest an optimal price for the package in Nigerian Naira.  Also explain the reasoning for the price that you suggested.
 
   Package Size: {{{size}}}
   Package Weight: {{{weight}}} kg

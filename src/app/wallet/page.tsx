@@ -11,7 +11,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useUser } from '@/contexts/UserContext';
 import type { WalletTransaction } from '@/lib/types';
 import { mockUsers, mockWalletTransactions } from '@/lib/mockData';
-import { DollarSign, ArrowDownToLine, ArrowUpFromLine, Send, History, Loader2, Wallet } from 'lucide-react';
+import { ArrowDownToLine, ArrowUpFromLine, Send, History, Loader2, Wallet } from 'lucide-react';
 import { format } from 'date-fns';
 import { useRouter } from 'next/navigation';
 
@@ -61,7 +61,7 @@ export default function WalletPage() {
 
     if (type === 'deposit') {
       newBalance += numericAmount;
-      successMessage = `Successfully deposited $${numericAmount.toFixed(2)}.`;
+      successMessage = `Successfully deposited ₦${numericAmount.toFixed(2)}.`;
     } else if (type === 'withdraw') {
       if (numericAmount > balance) {
         toast({ title: "Insufficient Funds", description: "You don't have enough balance to withdraw.", variant: "destructive" });
@@ -69,7 +69,7 @@ export default function WalletPage() {
         return;
       }
       newBalance -= numericAmount;
-      successMessage = `Successfully withdrew $${numericAmount.toFixed(2)}.`;
+      successMessage = `Successfully withdrew ₦${numericAmount.toFixed(2)}.`;
     } else if (type === 'transfer') {
       if (!recipientId) {
         toast({ title: "Recipient Required", description: "Please enter a recipient ID.", variant: "destructive" });
@@ -89,7 +89,7 @@ export default function WalletPage() {
           return;
       }
       newBalance -= numericAmount;
-      successMessage = `Successfully transferred $${numericAmount.toFixed(2)} to user ${recipientId}.`;
+      successMessage = `Successfully transferred ₦${numericAmount.toFixed(2)} to user ${recipientId}.`;
     }
     
     // Update mock user balance in context (this is a hack for mock, ideally backend handles this)
@@ -150,7 +150,7 @@ export default function WalletPage() {
         </CardHeader>
         <CardContent>
           <p className="text-sm">Current Balance</p>
-          <p className="text-5xl font-bold tracking-tight">${balance.toFixed(2)}</p>
+          <p className="text-5xl font-bold tracking-tight">₦{balance.toFixed(2)}</p>
         </CardContent>
       </Card>
 
@@ -167,10 +167,10 @@ export default function WalletPage() {
             <CardHeader><CardTitle>Add Funds to Wallet</CardTitle></CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <Label htmlFor="depositAmount">Amount (USD)</Label>
+                <Label htmlFor="depositAmount">Amount (NGN)</Label>
                 <div className="relative mt-1">
-                  <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                  <Input id="depositAmount" type="number" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="e.g., 50.00" className="pl-10" />
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground flex items-center">₦</span>
+                  <Input id="depositAmount" type="number" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="e.g., 20000.00" className="pl-10" />
                 </div>
               </div>
               <p className="text-xs text-muted-foreground">Mock payment methods will be used. No real transaction will occur.</p>
@@ -188,10 +188,10 @@ export default function WalletPage() {
             <CardHeader><CardTitle>Withdraw Funds</CardTitle></CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <Label htmlFor="withdrawAmount">Amount (USD)</Label>
+                <Label htmlFor="withdrawAmount">Amount (NGN)</Label>
                  <div className="relative mt-1">
-                  <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                  <Input id="withdrawAmount" type="number" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="e.g., 20.00" className="pl-10" />
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground flex items-center">₦</span>
+                  <Input id="withdrawAmount" type="number" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="e.g., 10000.00" className="pl-10" />
                 </div>
               </div>
               <p className="text-xs text-muted-foreground">Withdrawals are mock and will update your balance.</p>
@@ -213,10 +213,10 @@ export default function WalletPage() {
                 <Input id="recipientId" value={recipientId} onChange={(e) => setRecipientId(e.target.value)} placeholder="Enter recipient's user ID" />
               </div>
               <div>
-                <Label htmlFor="transferAmount">Amount (USD)</Label>
+                <Label htmlFor="transferAmount">Amount (NGN)</Label>
                 <div className="relative mt-1">
-                  <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                  <Input id="transferAmount" type="number" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="e.g., 15.00" className="pl-10" />
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground flex items-center">₦</span>
+                  <Input id="transferAmount" type="number" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="e.g., 5000.00" className="pl-10" />
                 </div>
               </div>
             </CardContent>
@@ -247,7 +247,7 @@ export default function WalletPage() {
                   <TableHead>Date</TableHead>
                   <TableHead>Type</TableHead>
                   <TableHead>Description</TableHead>
-                  <TableHead className="text-right">Amount (USD)</TableHead>
+                  <TableHead className="text-right">Amount (NGN)</TableHead>
                   <TableHead>Status</TableHead>
                 </TableRow>
               </TableHeader>
@@ -266,7 +266,7 @@ export default function WalletPage() {
                     </TableCell>
                     <TableCell className="max-w-[200px] truncate">{tx.description}</TableCell>
                     <TableCell className={`text-right font-medium ${tx.type.includes('Received') || tx.type === 'Deposit' ? 'text-green-600' : 'text-red-600'}`}>
-                      {tx.type.includes('Received') || tx.type === 'Deposit' ? '+' : '-'}${tx.amount.toFixed(2)}
+                      {tx.type.includes('Received') || tx.type === 'Deposit' ? '+' : '-'}₦{tx.amount.toFixed(2)}
                     </TableCell>
                      <TableCell>
                         <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${

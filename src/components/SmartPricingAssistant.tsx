@@ -57,7 +57,7 @@ export default function SmartPricingAssistant({ onPriceSuggested, initialValues 
       }
        toast({
         title: "Price Suggested!",
-        description: `AI suggests $${result.suggestedPrice.toFixed(2)}. Reasoning: ${result.reasoning}`,
+        description: `AI suggests ₦${result.suggestedPrice.toFixed(2)}. Reasoning: ${result.reasoning}`,
       });
     } catch (err) {
       console.error("Error suggesting price:", err);
@@ -132,7 +132,7 @@ export default function SmartPricingAssistant({ onPriceSuggested, initialValues 
           {suggestion && (
             <Card className="mt-6 bg-primary/5 border-primary">
               <CardHeader>
-                <CardTitle className="text-lg text-primary">AI Suggested Price: ${suggestion.suggestedPrice.toFixed(2)}</CardTitle>
+                <CardTitle className="text-lg text-primary">AI Suggested Price: ₦{suggestion.suggestedPrice.toFixed(2)}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-foreground/80"><span className="font-semibold">Reasoning:</span> {suggestion.reasoning}</p>

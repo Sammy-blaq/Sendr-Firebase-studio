@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Scale, Weight, DollarSign, ArrowRightLeft, CheckCircle, Edit3, Eye } from 'lucide-react';
+import { MapPin, Scale, Weight, ArrowRightLeft, CheckCircle, Edit3, Eye } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
 
 interface PackageCardProps {
@@ -62,7 +62,7 @@ export default function PackageCard({ packageRequest, onAccept, onNegotiate, onV
       </CardContent>
       <CardFooter className="p-4 bg-muted/50 border-t flex flex-col sm:flex-row items-center justify-between gap-2">
         <div className="flex items-center font-bold text-lg text-primary">
-          <DollarSign className="h-5 w-5 mr-1" />
+          <span className="mr-1">₦</span>
           {displayPrice.toFixed(2)}
           {status === 'Negotiating' && <Edit3 className="h-4 w-4 ml-2 text-accent" title="Price under negotiation" />}
         </div>

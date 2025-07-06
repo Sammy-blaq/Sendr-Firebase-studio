@@ -11,7 +11,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useUser } from '@/contexts/UserContext';
 import { useRouter } from 'next/navigation';
 import SmartPricingAssistant from '@/components/SmartPricingAssistant';
-import { PackagePlus, DollarSign, Loader2, UploadCloud } from 'lucide-react';
+import { PackagePlus, Loader2, UploadCloud } from 'lucide-react';
 import Image from 'next/image';
 
 interface FormData {
@@ -187,12 +187,12 @@ export default function SendPackagePage() {
           </div>
 
           <div>
-            <Label htmlFor="yourPrice">Your Desired Price (USD)</Label>
+            <Label htmlFor="yourPrice">Your Desired Price (NGN)</Label>
             <div className="relative mt-1 rounded-md shadow-sm">
               <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                <DollarSign className="h-5 w-5 text-muted-foreground" />
+                <span className="text-muted-foreground text-base">₦</span>
               </div>
-              <Input id="yourPrice" name="yourPrice" type="number" value={formData.yourPrice} onChange={handleInputChange} placeholder="e.g., 25.00" step="0.01" min="0.01" className="pl-10" required />
+              <Input id="yourPrice" name="yourPrice" type="number" value={formData.yourPrice} onChange={handleInputChange} placeholder="e.g., 15000.00" step="100" min="100" className="pl-10" required />
             </div>
           </div>
 

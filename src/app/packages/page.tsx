@@ -72,7 +72,7 @@ export default function PackagesPage() {
       return p;
     }));
     
-    toast({ title: "Offer Submitted!", description: `Your offer of $${newPrice.toFixed(2)} has been sent.` });
+    toast({ title: "Offer Submitted!", description: `Your offer of ₦${newPrice.toFixed(2)} has been sent.` });
     setNegotiatingPackage(null); // Close dialog
   };
 

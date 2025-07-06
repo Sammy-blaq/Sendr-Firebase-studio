@@ -132,7 +132,7 @@ export default function ProfilePage() {
              </div>
              <div className="flex items-center">
                 <Wallet className="h-4 w-4 mr-3 text-muted-foreground" />
-                <span>Wallet: <span className="font-semibold text-green-600">${currentUser.walletBalance.toFixed(2)}</span></span>
+                <span>Wallet: <span className="font-semibold text-green-600">₦{currentUser.walletBalance.toFixed(2)}</span></span>
              </div>
              <div className="flex items-center">
                 <Calendar className="h-4 w-4 mr-3 text-muted-foreground" />

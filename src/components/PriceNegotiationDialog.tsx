@@ -15,7 +15,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { DollarSign, Send, Edit3, MessageSquare } from 'lucide-react';
+import { Send, Edit3, MessageSquare } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 import { formatDistanceToNow } from 'date-fns';
 
@@ -70,7 +70,7 @@ export default function PriceNegotiationDialog({
           </DialogTitle>
           <DialogDescription>
             Package: {packageRequest.description || "Untitled Package"}. <br/>
-            Current asking price is ${initialPrice.toFixed(2)}.
+            Current asking price is ₦{initialPrice.toFixed(2)}.
             Propose a new price or discuss with the {packageRequest.senderId === currentUser.id ? 'traveler' : 'sender'}.
           </DialogDescription>
         </DialogHeader>
@@ -78,7 +78,7 @@ export default function PriceNegotiationDialog({
         <div className="py-4 space-y-4 max-h-[40vh] overflow-y-auto pr-2">
           <h4 className="font-semibold text-md">Offer History</h4>
           {currentOffers.length === 0 && (
-            <p className="text-sm text-muted-foreground">No offers yet. Original price by sender: ${packageRequest.proposedPrice.toFixed(2)}</p>
+            <p className="text-sm text-muted-foreground">No offers yet. Original price by sender: ₦{packageRequest.proposedPrice.toFixed(2)}</p>
           )}
           {currentOffers.map((offer, index) => (
             <div key={index} className={`flex items-start gap-3 p-3 rounded-lg ${offer.userId === currentUser.id ? 'bg-primary/10 ml-auto' : 'bg-muted/80 mr-auto'} max-w-[85%]`}>
@@ -91,7 +91,7 @@ export default function PriceNegotiationDialog({
                   <p className="text-sm font-medium">{offer.userName} {offer.userId === currentUser.id ? '(You)' : ''}</p>
                   <p className="text-xs text-muted-foreground">{formatDistanceToNow(new Date(offer.timestamp), { addSuffix: true })}</p>
                 </div>
-                <p className="text-lg font-bold text-primary">${offer.price.toFixed(2)}</p>
+                <p className="text-lg font-bold text-primary">₦{offer.price.toFixed(2)}</p>
               </div>
             </div>
           ))}
@@ -101,10 +101,10 @@ export default function PriceNegotiationDialog({
           <div className="grid gap-4 py-4">
             <div className="items-center gap-4">
               <Label htmlFor="negotiatedPrice" className="text-right mb-2 block">
-                Your Offer (USD)
+                Your Offer (NGN)
               </Label>
               <div className="relative">
-                <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground flex items-center">₦</span>
                 <Input
                   id="negotiatedPrice"
                   type="number"
@@ -112,8 +112,8 @@ export default function PriceNegotiationDialog({
                   onChange={(e) => setNegotiatedPrice(e.target.value)}
                   placeholder={`e.g., ${(initialPrice * 0.9).toFixed(2)}`}
                   className="pl-10"
-                  step="0.01"
-                  min="0.01"
+                  step="100"
+                  min="100"
                 />
               </div>
             </div>
